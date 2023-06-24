@@ -1,9 +1,9 @@
 ---
-title: "Pet Store API"
-linkTitle: Swagger
-date: 2017-01-05
+title: "ClickHouse Cloud API"
+linkTitle: ClickHouse Cloud API
+date: 2023-06-24
 weight: 5
-description: Reference for the Pet Store API
+description: Reference for the Clickhouse Cloud API
 ---
 
 {{< redoc "https://api.clickhouse.cloud/v1" >}}
