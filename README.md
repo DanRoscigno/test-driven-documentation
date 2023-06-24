@@ -1,5 +1,24 @@
 # Docsy Example
 
+## My notes
+
+I like repeatability, so I use Docker to simplify creating and recreating environments.
+
+The [docsy example repo]() provides a `Dockerfile` and `docker-compose.yaml`.  The compose
+file mounts the root dir of this repo as `/src` and launches hugo in develop mode.
+Open a browser at `localhost:1313`, and then you can then edit the files on your local
+machine and the changes will be immediately visible in your browser.
+
+```bash
+docker compose up --build
+```
+
+```bash
+docker compose up -d
+```
+
+## Original README
+
 [Docsy][] is a [Hugo theme module][] for technical documentation sites, providing easy
 site navigation, structure, and more. This **Docsy Example Project** uses the Docsy
 theme component as a hugo module and provides a skeleton documentation structure for you to use.
