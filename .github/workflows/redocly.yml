@@ -3,18 +3,16 @@ on:
 
 name: Update Swagger HTML
 jobs:
- release:
-   name: Update Swagger HTML
-   runs-on: ubuntu-latest
-   steps:
-     - name: Pull JSON
-       uses: technote-space/create-pr-action@v2
-       with:
-         GITHUB_TOKEN: ${{ secrets.PAT_GENERATE_PRS }}
-         EXECUTE_COMMANDS: |
-           npx @redocly/cli build-docs https://api.clickhouse.cloud/v1 --output static/en/cloud/manage/api/swagger.html
-         COMMIT_MESSAGE: 'chore: update API swagger HTML'
-         COMMIT_NAME: 'GitHub Actions'
-         COMMIT_EMAIL: 'learn+docs@clickhouse.com'
-         PR_BRANCH_NAME: 'chore-npm-update-${PR_ID}'
-         PR_TITLE: 'chore: update npm dependencies'
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: |
+          npx @redocly/cli build-docs https://api.clickhouse.cloud/v1 --output static/en/cloud/manage/api/swagger.html
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add static/en/cloud/manage/api/swagger.html
+          git commit -m "generated HTML"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_GENERATE_PRS }}
