@@ -10,6 +10,7 @@ jobs:
      - name: Pull JSON
        uses: technote-space/create-pr-action@v2
        with:
+         GITHUB_TOKEN: ${{ secrets.PAT_GENERATE_PRS }}
          EXECUTE_COMMANDS: |
            npx @redocly/cli build-docs https://api.clickhouse.cloud/v1 --output static/en/cloud/manage/api/swagger.html
          COMMIT_MESSAGE: 'chore: update API swagger HTML'
