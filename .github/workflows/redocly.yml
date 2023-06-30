@@ -11,10 +11,7 @@ jobs:
        uses: technote-space/create-pr-action@v2
        with:
          EXECUTE_COMMANDS: |
-           npx @redocly/cli \
-               build-docs  \
-               https://api.clickhouse.cloud/v1 \
-               --output static/en/cloud/manage/api/swagger.html
+           npx @redocly/cli build-docs https://api.clickhouse.cloud/v1 --output static/en/cloud/manage/api/swagger.html
          COMMIT_MESSAGE: 'chore: update API swagger HTML'
          COMMIT_NAME: 'GitHub Actions'
          COMMIT_EMAIL: 'learn+docs@clickhouse.com'
